@@ -11,7 +11,7 @@ public class Book{
   //constructor
   public Book(String title, String author, int yearPublished, String type){
     this.title = title;
-    this.id;//di pa to tapos
+    //this.id;//di pa to tapos
     this.author = author;
     this.yearPublished = yearPublished;
     this.type = type;
