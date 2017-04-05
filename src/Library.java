@@ -1,5 +1,14 @@
 //import Book;
 package library;
+
+
+import java.io.File;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.BufferedReader;
+import java.io.FileReader;
+//import java.lang.Exceptions;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -54,6 +63,23 @@ public class Library{
 			this.addBook(returnedBook);
 		}else{
 			this.bookCollection.get(returnedBook.getTitle()).add(returnedBook);
+		}
+	}
+	public void saveLibrary(){
+		try{
+			File saveFile = new File("Library.txt");
+			String line = "yea";
+			BufferedWriter writer = new BufferedWriter(new FileWriter(saveFile));
+			for(String title: this.bookCollection.keySet()){
+				writer.write(title + "\n");
+				for(Book book: this.bookCollection.get(title)){
+					writer.write(book.getTitle() + "||" + book.getAuthor() + "||" + book.getYear() + "||" + book.getType()+ "\n" );
+				}
+			}
+			writer.close();
+		}
+		catch( Exception e){
+
 		}
 	}
 }
