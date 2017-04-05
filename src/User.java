@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+
 public class User{
   ///attributes///
   private String name;
