@@ -27,8 +27,8 @@ public class Library{
 	public void showBookCollection(){
 		for(String title: this.bookCollection.keySet()){
 			System.out.println(title + ": " );
-			System.out.println("In shelf: " +this.bookCollection.get(title).size() )
-			Syste.out.printl(this.bookCollection.get(title));
+			System.out.println("In shelf: " +this.bookCollection.get(title).size() );
+			//System.out.printl(this.bookCollection.get(title));
 		}
 	}
 
@@ -49,7 +49,7 @@ public class Library{
 			this.bookCollection.get(title).remove(this.bookCollection.get(title).size() -1);//remove from library
 		}return  bookToLend;
 	}
-	public void retunToShelf(Book returnedBook){
+	public void returnToShelf(Book returnedBook){
 		if(!this.bookCollection.containsKey(returnedBook.getTitle())){ //return a book not previously added in the library
 			this.addBook(returnedBook);
 		}else{

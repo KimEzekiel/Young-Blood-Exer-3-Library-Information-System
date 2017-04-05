@@ -16,34 +16,34 @@ public class Book{
 		this.id= Integer.toHexString(bookNo);
 		Book.bookNo++;
 	}
-	String getId(){
+	public String getId(){
 		return this.id;
 	}
-	String getTitle(){
+	public String getTitle(){
 		return this.title;
 	}
-	String getAuthor(){
+	public String getAuthor(){
 		return this.author;
 	}
-	int getYear(){
+	public int getYear(){
 		return this.year;
 	}
-	String getType(){
+	public String getType(){
 		return this.type;
 	}
-	void setId(String id){
+	public void setId(String id){
 		this.id = id;
 	}
-	void setTitle(String title){
+	public void setTitle(String title){
 		this.title = title;
 	}
-	void setAuthor(String author){
+	public void setAuthor(String author){
 		this.author = author;
 	}
-	void setYear(int year){
+	public void setYear(int year){
 		this.year = year;
 	}
-	void setType(String type){
+	public void setType(String type){
 		this.type = type;
 	}
 
