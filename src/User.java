@@ -1,21 +1,25 @@
 public class User{
-  //attributes
+  ///attributes///
   private String name;
-  Book borrowedBooks[];// gagawin pang array list
+  ArrayList<Book> borrowedBooks;
 
 
-  //constants
+  ///constants///
 
 
-  //constructor
+  ///constructor///
+  public User(String name){
+    this.name = name;
+    this.borrowedBooks = new ArrayList<Book>();
+  }
 
-
-  //methods
+  ///methods///
   public void borrowBook(String bookTitle){
-    /*
+    /*1
     put in borrowedBooks
     remove book from library
     */
+
   }
   public void returnBook(String bookTitle){
     /*
@@ -25,13 +29,13 @@ public class User{
   }
 
 
-  //setters
+  ///setters///
   public void setName(String name){
     this.name = name;
   }
 
 
-  //getters
+  ///getters///
   public String getName(){
     return this.name;
   }
