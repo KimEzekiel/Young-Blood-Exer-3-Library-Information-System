@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import library.Library;
-import library.Book;
+
 public class User{
   ///attributes///
   private String name;
@@ -25,9 +23,8 @@ public class User{
     put in borrowedBooks
     remove book from library
     */
-    Book bookToBorrow = this.myLibrary.lendBook(bookTitle);
-    if(bookToBorrow != null){//if input bookTitle is in the library's list of books
-      this.borrowedBooks.add(bookToBorrow);//abb book to user's list of borrowedBooks
+    if(this.myLibrary.lendBook(bookTitle) != null){//if input bookTitle is in the library's list of books
+      this.borrowedBooks.add(this.myLibrary.lendBook(bookTitle));//abb book to user's list of borrowedBooks
       System.out.println("Book was successfully borrowed! ^_^ ^_^ ^_^");
     }
     else{
@@ -35,19 +32,16 @@ public class User{
     }
 
   }
-  public void returnBook(String bookTitle){
+  public returnBook(String bookTitle){
     Book bookFound = null;
+    int i = 0;
     for (Book bookName : borrowedBooks){
-      if(bookName.getTitle().equals(bookTitle)){
-        bookFound = bookName;
+      if(borrowedBooks.get(i).getTitle().equals(bookName)){
+        bookFound = borrowedBooks.get(i);
         break;
       }
     }
-    if(bookFound != null ){
-         this.myLibrary.returnToShelf(bookFound);
-         this.borrowedBooks.remove(this.borrowedBooks.indexOf(bookFound));
-    }
-    else System.out.println("You don't have that book");
+    this.myLibrary.returnToShelf(bookFound);
   }
 
 
@@ -70,11 +64,6 @@ public class User{
     return this.password;
   }
   public Library getMyLibrary(){
-    return this.myLibrary;
+    return this.myLibrary
   }
-  public void showBorrowedBooks(){
-     for(Book book: this.borrowedBooks){
-          book.showAllInfo();
-     }
- }
 }

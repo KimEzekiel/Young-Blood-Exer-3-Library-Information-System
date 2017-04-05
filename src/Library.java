@@ -53,12 +53,9 @@ public class Library{
 
 	public Book lendBook(String title){
 		Book bookToLend = null;
-		int index = 0;
-		if(this.bookCollection.containsKey(title) && this.bookCollection.get(title).size() >0) {//find if book title exists
-			index = this.bookCollection.get(title).size()-1;
-			System.out.println("index " + index);
-			bookToLend = this.bookCollection.get(title).get(index);	//copy book
-			this.bookCollection.get(title).remove(index);//remove from library
+		if(this.bookCollection.containsKey(title)) {//find if book title exists
+			bookToLend = this.bookCollection.get(title).get(this.bookCollection.get(title).size() -1);	//copy book
+			this.bookCollection.get(title).remove(this.bookCollection.get(title).size() -1);//remove from library
 		}return  bookToLend;
 	}
 	public void returnToShelf(Book returnedBook){
