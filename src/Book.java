@@ -1,16 +1,20 @@
+package library;
+
 public class Book{
 	private String id;
 	private String title;
 	private String author;
 	private int year;
 	private String type;
+	static int bookNo=0;
 
-	public Book(String id, String title, String author,int year,String type){
-		this.id= id;
+	public Book( String title, String author,int year,String type){
 		this.title = title;
 		this. author = author;
 		this.year= year;
 		this.type=type;
+		this.id= Integer.toHexString(bookNo);
+		Book.bookNo++;
 	}
 	String getId(){
 		return this.id;
