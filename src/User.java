@@ -117,13 +117,13 @@ public class User{
                     //instantiate
                     bookToLoad = new Book(bookAttributes[0], bookAttributes[1],bookAttributes[2],bookAttributes[3] );
                     bookToLoad.setId(bookAttributes[4]);
-                    System.out.println(bookToLoad.getTitle() + " added to user");
+                    //System.out.println(bookToLoad.getTitle() + " added to user");
                     //this.addBook(bookToLoad);
                     this.borrowedBooks.add(bookToLoad);
                }reader.close();
           }
           catch(Exception e){
-               e.printStackTrace();
+               System.out.println("No books to load :(");
                //System.out.println("error");
           }
 
