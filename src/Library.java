@@ -36,8 +36,10 @@ public class Library{
 	//}
 	public void showBookCollection(){
 		for(String title: this.bookCollection.keySet()){
+			System.out.println("############################################");
 			System.out.println(title + ": " );
 			System.out.println("In shelf: " +this.bookCollection.get(title).size() );
+			System.out.println("############################################\n");
 			//System.out.printl(this.bookCollection.get(title));
 		}
 	}

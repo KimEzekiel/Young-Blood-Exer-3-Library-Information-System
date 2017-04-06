@@ -15,37 +15,49 @@ public class Main{
  	User user = new User("user", "user", myLib);
      user.loadBorrowedBooks();
  	/**/
+  System.out.println("=============================================================\n                  Welcome To Our Library ^_^");
  	do{
- 		System.out.print("[1].BorrowBook\n[2].Return Book\n[3].View Books in the Library\n[4].View your borrowed books\n[5]Add book to library\n[0]Exit\nchoice: " );
+    System.out.println("=============================================================");
+ 		System.out.print("[1].BorrowBook\n[2].Return Book\n[3].View Books in the Library\n[4].View your borrowed books\n[5]Add book to library\n[0]Exit\n=============================================================\nchoice: " );
  		choice = numScan.nextInt();
  		switch(choice){
  			case 1:	//borrow a book
- 				System.out.println("Input book title");
+        System.out.println("\n-------------------------------------------------------------\n");
+ 				System.out.print("Input book title: ");
  				bookTitle = strScan.nextLine();
  				user.borrowBook(bookTitle);
+        System.out.println("\n-------------------------------------------------------------\n");
  				break;
  			case 2:	//return a book
- 				System.out.println("Input book title");
+        System.out.println("\n-------------------------------------------------------------\n");
+ 				System.out.print("Input book title: ");
  				bookTitle = strScan.nextLine();
  				user.returnBook(bookTitle);
+        System.out.println("\n-------------------------------------------------------------\n");
  				break;
  			case 3:	//show book collection
+        System.out.println("\n-------------------------------------------------------------\n");
  				myLib.showBookCollection();
+        System.out.println("-------------------------------------------------------------\n");
  				break;
  			case 4:	//view borrowed books
+        System.out.println("\n-------------------------------------------------------------\n");
  				user.showBorrowedBooks();
+        System.out.println("-------------------------------------------------------------\n");
  				break;
  			case 5:
- 				System.out.print("input title: " );
+        System.out.println("\n-------------------------------------------------------------\n");
+ 				System.out.print("Input title: " );
  				bookTitle = strScan.nextLine();
- 				System.out.print("input author: " );
+ 				System.out.print("Input author: " );
  				author = strScan.nextLine();
- 				System.out.print("input year: " );
+ 				System.out.print("Input year: " );
  				year = strScan.nextLine();
- 				System.out.print("input type: " );
+ 				System.out.print("Input type: " );
  				type = strScan.nextLine();
  				Book newBook = new Book(bookTitle, author, year, type);
  				myLib.addBook(newBook);
+        System.out.println("\n-------------------------------------------------------------\n");
  				break;
  			default:
  				break;

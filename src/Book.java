@@ -51,10 +51,12 @@ public class Book{
 	}
 
 	public void showAllInfo(){
+		System.out.println("############################################");
 		System.out.println("Title: " + this.title);
 		System.out.println("\tAuthor: " + this.author);
 		System.out.println("\tYear: " + this.year);
 		System.out.println("\tType: " + this.type);
 		System.out.println("\tID: " + this.id);
+		System.out.println("############################################\n");
 	}
 }

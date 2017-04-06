@@ -52,7 +52,11 @@ public class User{
     if (bookFound != null){
 	    this.myLibrary.returnToShelf(bookFound);
 	    this.borrowedBooks.remove(this.borrowedBooks.indexOf(bookFound));
-    	}
+      System.out.println("Book was successfully borrowed! ^_^ ^_^ ^_^");
+    }
+    else{
+	     System.out.println("Book not found in the library! T_T T_T T_T");
+    }
   }
 
 
