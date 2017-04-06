@@ -101,12 +101,13 @@ public class Library{
 				//instantiate
 				bookToLoad = new Book(bookAttributes[0], bookAttributes[1],bookAttributes[2],bookAttributes[3] );
 				bookToLoad.setId(bookAttributes[4]);
-				System.out.println(bookToLoad.getTitle() + " added to library");
+				//System.out.println(bookToLoad.getTitle() + " added to library");
 				this.addBook(bookToLoad);
 			}reader.close();
 		}
 		catch(Exception e){
-			e.printStackTrace();
+			System.out.println("No books to load :(");
+			//e.printStackTrace();
 			//System.out.println("error");
 		}
 	}
