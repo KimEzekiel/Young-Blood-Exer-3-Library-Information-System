@@ -10,13 +10,14 @@ public class Book{
 	private String type;
 	static int bookNo=0;
 
-	public Book( String title, String author,int year,String type){
+	public Book( String title, String author,String year,String type){
 		this.title = title;
 		this. author = author;
-		this.year= year;
+		this.year= Integer.parseInt(year);
 		this.type=type;
 		this.id= Integer.toHexString(bookNo);
 		Book.bookNo++;
+
 	}
 	public String getId(){
 		return this.id;
@@ -48,9 +49,11 @@ public class Book{
 	public void setType(String type){
 		this.type = type;
 	}
-
-
-
-
-
+	public void showAllInfo(){
+		System.out.println("Title: " + this.title);
+		System.out.println("\tAuthor: " + this.author);
+		System.out.println("\tYear: " + this.year);
+		System.out.println("\tType: " + this.type);
+		System.out.println("\tID: " + this.id);
 	}
+}
