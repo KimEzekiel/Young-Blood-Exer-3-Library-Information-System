@@ -13,7 +13,7 @@ public class Main{
  	Library myLib = new Library("my Library");
      myLib.loadLibrary();
  	User user = new User("user", "user", myLib);
-
+     user.loadBorrowedBooks();
  	/**/
  	do{
  		System.out.print("[1].BorrowBook\n[2].Return Book\n[3].View Books in the Library\n[4].View your borrowed books\n[5]Add book to library\n[0]Exit\nchoice: " );
@@ -53,6 +53,7 @@ public class Main{
  		}
  	}while(choice != 0);
      myLib.saveLibrary();
+     user.saveBorrowedBooks();
     //let user borrow a book
     //let user return a book
     //view book in library

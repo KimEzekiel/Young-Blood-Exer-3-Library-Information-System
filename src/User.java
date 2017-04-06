@@ -1,6 +1,12 @@
 import library.Book;
 import library.Library;
 import java.util.ArrayList;
+import java.io.File;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.BufferedReader;
+import java.io.FileReader;
+
 public class User{
   ///attributes///
   private String name;
@@ -76,4 +82,50 @@ public class User{
 	    book.showAllInfo();
     }
 }
+     /*file I/O*/
+     public void saveBorrowedBooks(){
+          try{
+               File saveFile = new File("saves/libraries/BorrowedBooks.csv");
+               //String line = "yea";
+               String delimiter = ",";
+               BufferedWriter writer = new BufferedWriter(new FileWriter(saveFile));
+               for(Book book: this.borrowedBooks){
+                    //writer.write(title + "\n");
+                    writer.write(book.getTitle() + delimiter + book.getAuthor() + delimiter + book.getYear() + delimiter + book.getType()+ delimiter+book.getId() +"\n" );
+               }
+               writer.close();
+          }
+          catch( Exception e){
+
+          }
+
+     }
+     public void loadBorrowedBooks(){
+          try{
+               File saveFile = new File("saves/libraries/BorrowedBooks.csv");
+               BufferedReader reader = new BufferedReader(new FileReader(saveFile));
+               String line;
+               String delimiter = ",";
+               Book bookToLoad = null;
+               //int i;
+               /*book attributes*/
+               //String[] bookAttributes ;
+               while((line = reader.readLine()) != null){
+                    //System.out.println(line);
+                    String[] bookAttributes = line.split(delimiter);
+                    //System.out.println(bookAttributes[0] + bookAttributes[1] + bookAttributes[2] +bookAttributes[3] );
+                    //instantiate
+                    bookToLoad = new Book(bookAttributes[0], bookAttributes[1],bookAttributes[2],bookAttributes[3] );
+                    bookToLoad.setId(bookAttributes[4]);
+                    System.out.println(bookToLoad.getTitle() + " added to user");
+                    //this.addBook(bookToLoad);
+                    this.borrowedBooks.add(bookToLoad);
+               }reader.close();
+          }
+          catch(Exception e){
+               e.printStackTrace();
+               //System.out.println("error");
+          }
+
+     }
 }

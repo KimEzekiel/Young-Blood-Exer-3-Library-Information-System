@@ -68,14 +68,14 @@ public class Library{
 	}
 	public void saveLibrary(){
 		try{
-			File saveFile = new File("Library.csv");
+			File saveFile = new File("saves/libraries/Library.csv");
 			//String line = "yea";
 			String delimiter = ",";
 			BufferedWriter writer = new BufferedWriter(new FileWriter(saveFile));
 			for(String title: this.bookCollection.keySet()){
 				//writer.write(title + "\n");
 				for(Book book: this.bookCollection.get(title)){
-					writer.write(book.getTitle() + delimiter + book.getAuthor() + delimiter + book.getYear() + delimiter + book.getType()+ "\n" );
+					writer.write(book.getTitle() + delimiter + book.getAuthor() + delimiter + book.getYear() + delimiter + book.getType()+delimiter+book.getId() +"\n" );
 				}
 			}
 			writer.close();
@@ -86,7 +86,7 @@ public class Library{
 	}
 	public void loadLibrary(){
 		try{
-			File saveFile = new File("Library.csv");
+			File saveFile = new File("saves/libraries/Library.csv");
 			BufferedReader reader = new BufferedReader(new FileReader(saveFile));
 			String line;
 			String delimiter = ",";
@@ -95,11 +95,12 @@ public class Library{
 			/*book attributes*/
 			//String[] bookAttributes ;
 			while((line = reader.readLine()) != null){
-				System.out.println(line);
+				//System.out.println(line);
 				String[] bookAttributes = line.split(delimiter);
 				//System.out.println(bookAttributes[0] + bookAttributes[1] + bookAttributes[2] +bookAttributes[3] );
 				//instantiate
 				bookToLoad = new Book(bookAttributes[0], bookAttributes[1],bookAttributes[2],bookAttributes[3] );
+				bookToLoad.setId(bookAttributes[4]);
 				System.out.println(bookToLoad.getTitle() + " added to library");
 				this.addBook(bookToLoad);
 			}reader.close();
