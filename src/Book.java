@@ -46,11 +46,4 @@ public class Book{
 	public void setType(String type){
 		this.type = type;
 	}
-
-
-
-
-
-
-	
 }
